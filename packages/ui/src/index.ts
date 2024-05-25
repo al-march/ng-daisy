@@ -1,1 +1,1 @@
-export * from './lib/ui/ui.component';
+export * from './components/navigation/tabs';

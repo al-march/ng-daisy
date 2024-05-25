@@ -1,1 +1,46 @@
-<p>page-welcome works!</p>
+<section class="p-4">
+  <p class="text-2xl py-4">Sizes</p>
+
+  <div class="flex flex-col gap-4 max-w-[300px]">
+    <ngd-tabs size="lg">
+      <button ngdTab>Tab 1</button>
+      <button ngdTab [active]="true">Tab 2</button>
+      <button ngdTab>Tab 3</button>
+    </ngd-tabs>
+    <ngd-tabs size="md">
+      <button ngdTab>Tab 1</button>
+      <button ngdTab [active]="true">Tab 2</button>
+      <button ngdTab>Tab 3</button>
+    </ngd-tabs>
+    <ngd-tabs size="sm">
+      <button ngdTab>Tab 1</button>
+      <button ngdTab [active]="true">Tab 2</button>
+      <button ngdTab>Tab 3</button>
+    </ngd-tabs>
+    <ngd-tabs size="xs">
+      <button ngdTab>Tab 1</button>
+      <button ngdTab [active]="true">Tab 2</button>
+      <button ngdTab>Tab 3</button>
+    </ngd-tabs>
+  </div>
+
+  <p class="text-2xl py-4">Appearance</p>
+
+  <div class="flex flex-col gap-4 max-w-[300px]">
+    <ngd-tabs appearance="bordered">
+      <button ngdTab (activeChange)="onTabChange(0, $event)" [active]="true">Tab 1</button>
+      <button ngdTab (activeChange)="onTabChange(1, $event)">Tab 2</button>
+      <button ngdTab (activeChange)="onTabChange(2, $event)">Tab 3</button>
+    </ngd-tabs>
+    <ngd-tabs [active]="2" appearance="boxed">
+      <button ngdTab>Tab 1</button>
+      <button ngdTab [active]="true">Tab 2</button>
+      <button ngdTab>Tab 3</button>
+    </ngd-tabs>
+    <ngd-tabs appearance="lifted">
+      <button ngdTab>Tab 1</button>
+      <button ngdTab [active]="true">Tab 2</button>
+      <button ngdTab>Tab 3</button>
+    </ngd-tabs>
+  </div>
+</section>

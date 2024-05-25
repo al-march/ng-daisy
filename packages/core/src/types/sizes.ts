@@ -3,6 +3,6 @@ export const daisySizes = [
   'md',
   'sm',
   'xs',
-];
+] as const;
 
 export type DaisySize = typeof daisySizes[number];

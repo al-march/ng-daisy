@@ -21,4 +21,19 @@ export const daisyColors = [
   'error-content'
 ] as const;
 
+export const statusColors = [
+  'info',
+  'success',
+  'warning',
+  'error'
+] as const;
+
+export const mainColors = [
+  'primary',
+  'secondary',
+  'accent'
+] as const;
+
 export type DaisyColor = typeof daisyColors[number];
+export type StatusColor = typeof statusColors[number];
+export type MainColor = typeof mainColors[number];

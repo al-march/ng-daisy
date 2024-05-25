@@ -13,7 +13,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "lib",
+            "prefix": "ngd",
             "style": "camelCase"
           }
         ],
@@ -21,7 +21,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "lib",
+            "prefix": "ngd",
             "style": "kebab-case"
           }
         ]

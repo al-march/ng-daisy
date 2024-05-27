@@ -13,8 +13,8 @@ describe('TabsComponent', () => {
         [size]="size()"
         [appearance]="appearance()"
       >
-        @for (tab of tabs(); track tab) {
-          <button ngdTab>{{ tab }}</button>
+        @for (tab of tabs(); track tab.value) {
+          <button ngdTab [active]="tab.active">{{ tab }}</button>
         }
       </ngd-tabs>
     `,
@@ -26,7 +26,11 @@ describe('TabsComponent', () => {
   })
   class TestComponent {
     model = model(0);
-    tabs = input([1, 2, 3]);
+    tabs = input([
+      { value: 1, active: false },
+      { value: 2, active: false },
+      { value: 3, active: false }
+    ]);
     size = input<DaisySize>('md');
     appearance = input<TabsAppearance>('');
   }
@@ -52,12 +56,54 @@ describe('TabsComponent', () => {
     .queryAll(By.css('button[ngdTab]'))
     .map(tab => tab.nativeElement);
 
+  const isTabActive = (tab: HTMLButtonElement | undefined) => tab?.classList.contains('tab-active');
+
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
   it('should render all tabs', () => {
     expect(renderedTabs().length).toBe(component.tabs().length);
+  });
+
+  it('should set default active tab', () => {
+    fixture.componentRef.setInput('tabs', [
+      { value: 1, active: false },
+      { value: 2, active: false },
+      { value: 3, active: false }
+    ]);
+    fixture.componentRef.setInput('model', 0);
+    fixture.detectChanges();
+
+    const [tab] = renderedTabs();
+
+    expect(isTabActive(tab)).toBeTruthy();
+  });
+
+  it('should set active tab by model', () => {
+    fixture.componentRef.setInput('tabs', [
+      { value: 1, active: true },
+      { value: 2, active: true },
+      { value: 3, active: true }
+    ]);
+    fixture.componentRef.setInput('model', 0);
+    fixture.detectChanges();
+
+    const [tab] = renderedTabs();
+
+    expect(isTabActive(tab)).toBeTruthy();
+  });
+
+  it('should set active tab by the last active prop of the tabComponent', () => {
+    fixture.componentRef.setInput('tabs', [
+      { value: 1, active: true },
+      { value: 2, active: true },
+      { value: 3, active: true }
+    ]);
+    fixture.componentRef.setInput('model', -1);
+    const lastTab = renderedTabs().at(-1);
+
+    expect(isTabActive(lastTab));
   });
 
   it('should update model', () => {

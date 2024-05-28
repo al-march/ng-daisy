@@ -28,8 +28,8 @@
 
   <div class="flex flex-col gap-4 max-w-[300px]">
     <ngd-tabs appearance="bordered">
-      <button ngdTab (activeChange)="onTabChange(0, $event)" [active]="true">Tab 1</button>
-      <button ngdTab (activeChange)="onTabChange(1, $event)">Tab 2</button>
+      <button ngdTab (activeChange)="onTabChange(0, $event)">Tab 1</button>
+      <button ngdTab (activeChange)="onTabChange(1, $event)" [active]="true">Tab 2</button>
       <button ngdTab (activeChange)="onTabChange(2, $event)">Tab 3</button>
     </ngd-tabs>
     <ngd-tabs [active]="2" appearance="boxed">

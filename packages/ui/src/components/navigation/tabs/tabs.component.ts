@@ -1,12 +1,4 @@
-import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  Component,
-  computed,
-  contentChildren,
-  input,
-  model
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, contentChildren, effect, input, model } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DaisySize } from '@ng-daisy/core';
 import { TabDirective } from './tab/tab.directive';
@@ -41,7 +33,7 @@ export type TabsAppearance = typeof tabsAppearance[number];
     '[class.tabs-boxed]': 'appearance() === "boxed"'
   }
 })
-export class TabsComponent implements AfterViewInit {
+export class TabsComponent {
   size = input<DaisySize>('md');
   appearance = input<TabsAppearance>('');
   active = model(-1);
@@ -55,13 +47,18 @@ export class TabsComponent implements AfterViewInit {
     return this.active() >= 0 && this.tabs().length >= this.active();
   });
 
-  ngAfterViewInit() {
-    this.initTabs();
+  constructor() {
+    effect(() => {
+      this.active();
+      if (this.tabs().length) {
+        this.initTabs();
+      }
+    }, {allowSignalWrites: true});
   }
 
-  protected initTabs() {
+  protected initTabs(tabs = this.tabs()) {
     let checkedIndex = 0;
-    this.tabs().forEach((tab, i) => {
+    tabs.forEach((tab, i) => {
       if (tab.active()) {
         checkedIndex = i;
       }

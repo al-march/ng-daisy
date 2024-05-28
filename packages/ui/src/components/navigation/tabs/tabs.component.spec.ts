@@ -56,7 +56,7 @@ describe('TabsComponent', () => {
     .queryAll(By.css('button[ngdTab]'))
     .map(tab => tab.nativeElement);
 
-  const isTabActive = (tab: HTMLButtonElement | undefined) => tab?.classList.contains('tab-active');
+  const isTabActive = (tab: HTMLButtonElement | undefined) => !!tab?.classList.contains('tab-active');
 
   it('should create', () => {
     expect(component).toBeTruthy();
@@ -94,16 +94,17 @@ describe('TabsComponent', () => {
     expect(isTabActive(tab)).toBeTruthy();
   });
 
-  it('should set active tab by the last active prop of the tabComponent', () => {
+  it('should set active tab by the last active prop of the tabComponent', async () => {
     fixture.componentRef.setInput('tabs', [
-      { value: 1, active: true },
-      { value: 2, active: true },
+      { value: 1, active: false },
+      { value: 2, active: false },
       { value: 3, active: true }
     ]);
     fixture.componentRef.setInput('model', -1);
-    const lastTab = renderedTabs().at(-1);
+    fixture.detectChanges();
+    await new Promise(r => setTimeout(r));
 
-    expect(isTabActive(lastTab));
+    expect(component.model()).toBe(2);
   });
 
   it('should update model', () => {

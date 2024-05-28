@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TabDirective, TabsComponent } from '@ng-daisy/ui';
+import { BadgeComponent, TabDirective, TabsComponent } from '@ng-daisy/ui';
 
 @Component({
   selector: 'app-page-welcome',
   standalone: true,
-  imports: [CommonModule, TabsComponent, TabDirective],
+  imports: [CommonModule, TabsComponent, TabDirective, BadgeComponent],
   templateUrl: './page-welcome.component.html',
   styleUrl: './page-welcome.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush

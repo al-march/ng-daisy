@@ -44,3 +44,80 @@
     </ngd-tabs>
   </div>
 </section>
+<section>
+  <p class="text-2xl py-4">Badge</p>
+  <span ngdBadge>Badge</span>
+  <p class="text-2xl py-4">Badge with brand colors</p>
+  <div ngdBadge>default</div>
+  <div ngdBadge color="neutral">neutral</div>
+  <div ngdBadge color="primary">primary</div>
+  <div ngdBadge color="secondary">secondary</div>
+  <div ngdBadge color="accent">accent</div>
+  <div ngdBadge color="ghost">ghost</div>
+  <p class="text-2xl py-4">Outline badge</p>
+  <div ngdBadge outline="outline">default</div>
+  <div ngdBadge outline="outline" color="primary">primary</div>
+  <div ngdBadge outline="outline" color="secondary">secondary</div>
+  <div ngdBadge outline="outline" color="accent">accent</div>
+  <p class="text-2xl py-4">Badge sizes</p>
+  <div ngdBadge size="lg">987,654</div>
+  <div ngdBadge size="md">987,654</div>
+  <div ngdBadge size="sm">987,654</div>
+  <div ngdBadge size="xs">987,654</div>
+  <p class="text-2xl py-4">Empty badge</p>
+  <div ngdBadge size="lg" color="primary"></div>
+  <div ngdBadge size="md" color="primary"></div>
+  <div ngdBadge size="sm" color="primary"></div>
+  <div ngdBadge size="xs" color="primary"></div>
+<p class="text-2xl py-4">Badge with state colors</p>
+  <div ngdBadge class="gap-2" color="info">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-4 h-4 stroke-current">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+    </svg>
+    info
+  </div>
+  <div ngdBadge class="gap-2" color="success">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-4 h-4 stroke-current">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+    </svg>
+    success
+  </div>
+  <div ngdBadge class="gap-2" color="warning">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-4 h-4 stroke-current">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+    </svg>
+    warning
+  </div>
+  <div ngdBadge class="gap-2" color="error">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-4 h-4 stroke-current">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+    </svg>
+    error
+  </div>
+  <p class="text-2xl py-4">Badge in a text</p>
+  <h2 class="text-xl">
+    Heading
+    <span ngdBadge size="lg">NEW</span>
+  </h2>
+  <h3 class="text-lg">
+    Heading
+    <span ngdBadge size="md">NEW</span>
+  </h3>
+  <h4 class="text-base">
+    Heading
+    <span ngdBadge size="sm" >NEW</span>
+  </h4>
+  <h5 class="text-sm">
+    Heading
+    <span ngdBadge size="xs" >NEW</span>
+  </h5>
+  <p class="text-2xl py-4">Badge in a button</p>
+  <button class="btn">
+    Inbox
+    <div ngdBadge>+99</div>
+  </button>
+  <button class="btn">
+    Inbox
+    <div ngdBadge color="secondary">+99</div>
+  </button>
+</section>
